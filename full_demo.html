@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>OriginStamp Demo: JS Form Listener</title>
+
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <h3>OriginStamp Demo: JS Form Listener</h3>
+
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#form_text" data-toggle="tab">Text Form</a></li>
+        <li><a href="#form_file" data-toggle="tab">File Form</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <hr class="invisible" />
+        <div class="tab-pane active" id="form_text">
+          <form class="form-horizontal originstamp" role="form">
+            <div class="form-group">
+              <label for="text-sender" class="col-sm-2 control-label">Sender</label>
+              <div class="col-sm-10">
+                <input type="email" id="text-sender" class="form-control" data-originstamp="sender" placeholder="you@email.com" required>
+              </div>
+            </div>
+            <!-- <div class="form-group">
+              <label for="recipients" class="col-sm-2 control-label">Recipients</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" data-originstamp="recipients" placeholder="your-friend@email.com, another-friend@email.com" />
+              </div>
+            </div> -->
+            <div class="form-group">
+              <label for="text-content" class="col-sm-2 control-label">Text</label>
+              <div class="col-sm-10">
+                <textarea id="text-content" class="form-control" data-originstamp="content" rows="5" placeholder="Whatever you want to originstamp..." required></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" data-originstamp="send_back"> Send me a copy of my data by email
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">Submit your data</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="tab-pane" id="form_file">
+          <form class="form-horizontal originstamp" role="form">
+            <div class="form-group">
+              <label for="file-sender" class="col-sm-2 control-label">Sender</label>
+              <div class="col-sm-10">
+                <input type="email" id="file-sender" class="form-control" data-originstamp="sender" placeholder="you@email.com" required />
+              </div>
+            </div>
+            <!-- <div class="form-group">
+              <label for="recipients" class="col-sm-2 control-label">Recipients</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" data-originstamp="recipients" placeholder="your-friend@email.com, another-friend@email.com" />
+              </div>
+            </div> -->
+            <div class="form-group">
+              <label for="file-content" class="col-sm-2 control-label">File input</label>
+              <div class="col-sm-10">
+                <input type="file" id="file-content" data-originstamp="content" class="form-control" />
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-9">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" data-originstamp="response"> Send me a copy of my data by email
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">Submit your data</button>
+              </div>
+            </div>
+          </form>          
+        </div>
+      </div>
+
+
+    </div><!-- /.container -->
+
+    <div class="alert alert-success">
+    </div>
+
+    <div class="alert alert-danger">
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="src/originstamp.js"></script>
+
+    <script type="text/javascript">
+      window.onload = function() {
+        OriginStamp.init();
+      }
+    </script>
+  </body>
+</html>

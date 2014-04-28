@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>OriginStamp Demo: JS Form Listener</title>
+  </head>
+
+  <body>
+
+    <form class="form-horizontal originstamp">
+      <input type="file" data-originstamp="content"/>
+      <button type="submit">Submit your data</button>
+    </form>
+
+    <div class="alert alert-success">
+    </div>
+
+    <div class="alert alert-danger">
+    </div>
+
+    <script src="src/originstamp.js"></script>
+
+    <script type="text/javascript">
+      window.onload = function() {
+        OriginStamp.init();
+      }
+    </script>
+  </body>
+</html>
