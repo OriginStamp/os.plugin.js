@@ -79,7 +79,7 @@
   }
 
   os.error = function(element, xhr, errors) {
-    console.log(errors)
+    console.log(errors);
   }
 
   os.init = function(overrides){
@@ -178,7 +178,7 @@
           } else {
             jsonPOST.stamp.hash_sha256 = CryptoJS.SHA256( content.value ).toString( CryptoJS.enc.Hex );
           }
-          console.log( "Text Form Submit", xhr )
+
           xhr.send( JSON.stringify( jsonPOST ) );
         }
 
