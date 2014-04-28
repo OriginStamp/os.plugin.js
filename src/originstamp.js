@@ -103,8 +103,7 @@
 
         // Init the HTTP request to OriginStamp API
         var xhr = new XMLHttpRequest();
-        // xhr.open( "POST", "http://originstamp.herokuapp.com/api/stamps" );
-        xhr.open( "POST", "http://localhost:3000/api/stamps" );
+        xhr.open( "POST", "http://originstamp.org/api/stamps" );
         xhr.setRequestHeader('Authorization', 'Token token=259bbc566bab546bb45daa798ecbc71c');
         xhr.withCredentials = true;
         // Set the success/error handlers for the HTTP request
