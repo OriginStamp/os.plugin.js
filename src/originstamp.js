@@ -13,6 +13,7 @@
 
   var overlay = null;
   os.selector = ".originstamp";
+  os.api_key = "";
 
   function init_progress_overlay() {
     overlay = document.getElementById( "originstamp" );
@@ -49,14 +50,12 @@
     }
   }
 
-  function loadJS(testObjectType, path) {
-    if (testObjectType == 'undefined') {
-      var js = document.createElement("script");
+  function loadJS(path) {
+    var js = document.createElement("script");
 
-      js.type = "text/javascript";
-      js.src = path
-      document.body.appendChild(js);
-    }
+    js.type = "text/javascript";
+    js.src = path
+    document.body.appendChild(js);
   }
 
   function merge_objects(a, b) {
@@ -86,7 +85,8 @@
 
     os = merge_objects(os, overrides);
 
-    loadJS(typeof CryptoJS, "http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha256.js")
+    loadJS("http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha256.js")
+    // loadJS("http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js")
 
     elements = document.querySelectorAll( os.selector )
     // In case there are multiple forms on the same webpage
@@ -104,7 +104,7 @@
         // Init the HTTP request to OriginStamp API
         var xhr = new XMLHttpRequest();
         xhr.open( "POST", "http://originstamp.org/api/stamps" );
-        xhr.setRequestHeader('Authorization', 'Token token=259bbc566bab546bb45daa798ecbc71c');
+        xhr.setRequestHeader( "Authorization", "Token token=" + os.api_key );
         xhr.withCredentials = true;
         // Set the success/error handlers for the HTTP request
         xhr.onreadystatechange = function() {
