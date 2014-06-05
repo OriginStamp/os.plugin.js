@@ -144,12 +144,10 @@
 
         // Default JSON post object for the HTTP request
         jsonPOST = {
-          stamp : {
-            sender : (senderField) ? senderField.value : null,
-            title : (titleField) ? titleField.value : null
-            // Not yet implemented server-side
-            // recipients : e.srcElement.querySelector( "[data-originstamp=\"recipients\"]" ).value
-          }
+          sender : (senderField) ? senderField.value : null,
+          title : (titleField) ? titleField.value : null
+          // Not yet implemented server-side
+          // recipients : e.srcElement.querySelector( "[data-originstamp=\"recipients\"]" ).value
         }
 
         // Check if either a file or a plain text will be submitted to the OriginStamp API
@@ -162,11 +160,11 @@
               reader.onload = function( e ) {
                 // if true, send raw data to server
                 if ( sendResponse ) {
-                  jsonPOST.stamp.send_back = "1"
-                  jsonPOST.stamp.file_name = file.name;
-                  jsonPOST.stamp.raw_content = e.target.result;
+                  jsonPOST.send_back = "1";
+                  jsonPOST.file_name = file.name;
+                  jsonPOST.raw_content = e.target.result;
                 } else {
-                  jsonPOST.stamp.hash_sha256 = CryptoJS.SHA256( e.target.result ).toString( CryptoJS.enc.Hex );
+                  jsonPOST.hash_sha256 = CryptoJS.SHA256( e.target.result ).toString( CryptoJS.enc.Hex );
                 }
                 xhr.send( JSON.stringify( jsonPOST ) );
               }
@@ -174,9 +172,9 @@
           }
         } else {
           if ( sendResponse ) {
-            jsonPOST.stamp.raw_content = content.value;
+            jsonPOST.raw_content = content.value;
           } else {
-            jsonPOST.stamp.hash_sha256 = CryptoJS.SHA256( content.value ).toString( CryptoJS.enc.Hex );
+            jsonPOST.hash_sha256 = CryptoJS.SHA256( content.value ).toString( CryptoJS.enc.Hex );
           }
 
           xhr.send( JSON.stringify( jsonPOST ) );
