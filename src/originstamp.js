@@ -12,6 +12,8 @@
 (function(os){
 
   var overlay = null;
+  const API_URL = 'http://originstamp.org/api/stamps';
+  // const API_URL = 'http://localhost:3000/api/stamps';
   os.selector = ".originstamp";
   os.api_key = "";
 
@@ -103,7 +105,7 @@
 
         // Init the HTTP request to OriginStamp API
         var xhr = new XMLHttpRequest();
-        xhr.open( "POST", "http://originstamp.org/api/stamps" );
+        xhr.open( "POST", API_URL );
         xhr.setRequestHeader( "Authorization", "Token token=" + os.api_key );
         xhr.withCredentials = true;
         // Set the success/error handlers for the HTTP request
