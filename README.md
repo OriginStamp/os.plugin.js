@@ -11,9 +11,9 @@ The OriginStamp JavaScript Plugin provides the background-creation of timestamps
 
 For a quickstart add the following line to your JavaScript
 
-1. [Get an API key](http://www.originstamp.org/pages/developer)
+1. [Get an API key](http://www.originstamp.org/developer)
 2. `OriginStamp.init({api_key:"YOUR_API_KEY"});`
-3. Add the data-attributes to your form fields. (See an example file)
+3. Add the data-attributes to your form fields. ([See example file](https://github.com/OriginStamp/os.plugin.js/blob/master/full_demo.html))
 4. Add the CSS selector to your form
 
 ### Overrides
