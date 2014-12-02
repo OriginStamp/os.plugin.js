@@ -83,6 +83,12 @@
     console.log(errors);
   }
 
+  os.compute_hash = function(string) {
+    var sha256 = CryptoJS.algo.SHA256.create();
+    sha256.update(CryptoJS.enc.Latin1.parse(string));
+    return sha256.finalize() + ""
+  }
+
   os.init = function(overrides){
 
     os = merge_objects(os, overrides);
@@ -166,7 +172,7 @@
                   jsonPOST.file_name = file.name;
                   jsonPOST.raw_content = e.target.result;
                 } else {
-                  jsonPOST.hash_sha256 = CryptoJS.SHA256( e.target.result ).toString( CryptoJS.enc.Hex );
+                  jsonPOST.hash_sha256 = os.compute_hash( e.target.result )
                 }
                 xhr.send( JSON.stringify( jsonPOST ) );
               }
@@ -176,7 +182,7 @@
           if ( sendResponse ) {
             jsonPOST.raw_content = content.value;
           } else {
-            jsonPOST.hash_sha256 = CryptoJS.SHA256( content.value ).toString( CryptoJS.enc.Hex );
+            jsonPOST.hash_sha256 = os.compute_hash( content.value )
           }
 
           xhr.send( JSON.stringify( jsonPOST ) );
